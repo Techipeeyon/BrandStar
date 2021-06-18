@@ -1,8 +1,8 @@
 import tweepy
-consumer_key = "NgBti22Stqnqz7v6ZqwTdUDxp"
-consumer_secret = "4JvCE6t1rkMiVhUD97NBezm34eR7hV5wLQ27NmYJg2QAyYE28w"
-access_key = "1143115156295077888-QRzzKGCMuiS0pKUkF2EzbTWjKqLVyb"
-access_secret = "Cl23SQe1mESEUKfK3kdTgqpaQIHso8xxpfr9eEmDY43SY"
+consumer_key = ""
+consumer_secret = ""
+access_key = ""
+access_secret = ""
 
 def getUserDetails(username):
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)

@@ -329,7 +329,7 @@
                             <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Chart &amp; Maps</div>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li>
-                                    <a href="{{url_for('charts', e_df=e_df, tweets_df=tweets_df)}}">
+                                    <a href="{{ url_for('charts',username=context.user) }}">
                                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">Chart</span>
                                         <span class="pcoded-mcaret"></span>
@@ -364,7 +364,7 @@
                                             </a>
                                         </li>
                                         <li class=" ">
-                                            <a href="sample-page.html">
+                                            <a href="{{url_for('textAnalyze',username=context.user)}}">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Sample Page</span>
                                                 <span class="pcoded-mcaret"></span>
@@ -521,19 +521,19 @@
                                                         <div class="card-header">
                                                             <i class="icofont icofont-social-facebook"></i>
                                                             <div class="d-inline-block">
-                                                                <h5>facebook</h5>
-                                                                <span>blog page timeline</span>
+                                                                <h5>Popularity</h5>
+                                                                <span>last 100 tweets</span>
                                                             </div>
                                                         </div>
                                                         <div class="card-block text-center">
                                                             <div class="row">
                                                                 <div class="col-6 b-r-default">
-                                                                    <h2>23</h2>
-                                                                    <p class="text-muted">Active</p>
+                                                                    <h2>{{context.max}}</h2>
+                                                                    <p class="text-muted">{{context.max_index}}</p>
                                                                 </div>
                                                                 <div class="col-6">
-                                                                    <h2>23</h2>
-                                                                    <p class="text-muted">Comment</p>
+                                                                    <h2>{{context.min}}</h2>
+                                                                    <p class="text-muted">{{context.min_index}}</p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -542,19 +542,19 @@
                                                         <div class="card-header">
                                                             <i class="icofont icofont-social-dribbble"></i>
                                                             <div class="d-inline-block">
-                                                                <h5>dribble</h5>
-                                                                <span>Product page analysis</span>
+                                                                <h5>Sentiments</h5>
+                                                                <span>Sentiment analysis</span>
                                                             </div>
                                                         </div>
                                                         <div class="card-block text-center">
                                                             <div class="row">
                                                                 <div class="col-6 b-r-default">
-                                                                    <h2>23</h2>
-                                                                    <p class="text-muted">Live</p>
+                                                                    <h2>{{context.avg_sentiment}}</h2>
+                                                                    <p class="text-muted">Average</p>
                                                                 </div>
                                                                 <div class="col-6">
-                                                                    <h2>23</h2>
-                                                                    <p class="text-muted">Message</p>
+                                                                    <h2>{{context.max_sentiment_value}}</h2>
+                                                                    <p class="text-muted">Maximum</p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -563,19 +563,19 @@
                                                         <div class="card-header">
                                                             <i class="icofont icofont-social-twitter"></i>
                                                             <div class="d-inline-block">
-                                                                <h5>twitter</h5>
-                                                                <span>current new timeline</span>
+                                                                <h5>Tweet Length Type</h5>
+                                                                <span>Last 100 tweets</span>
                                                             </div>
                                                         </div>
                                                         <div class="card-block text-center">
                                                             <div class="row">
                                                                 <div class="col-6 b-r-default">
-                                                                    <h2>25</h2>
-                                                                    <p class="text-muted">new tweet</p>
+                                                                    <h2>{{context.maxlength_count}}</h2>
+                                                                    <p class="text-muted">{{context.maxlengthtype_index}}</p>
                                                                 </div>
                                                                 <div class="col-6">
-                                                                    <h2>450+</h2>
-                                                                    <p class="text-muted">Follower</p>
+                                                                    <h2>{{context.minlength_count}}</h2>
+                                                                    <p class="text-muted">{{context.minlengthtype_index}}</p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -697,9 +697,6 @@
                                                         <div class="card-header-left">
                                                             <h5>To do list</h5>
                                                         </div>
-                                                        <div class="card-header-right">
-                                                            <button class="btn btn-card btn-primary">Add task </button>
-                                                        </div>
                                                     </div>
                                                     <div class="card-block">
                                                         <div class="to-do-list">
@@ -709,7 +706,7 @@
                                                                     <span class="cr">
                                                                         <i class="cr-icon icofont icofont-ui-check txt-default"></i>
                                                                     </span>
-                                                                    <span><h6>Schedule Meeting with Compnes <span class="label bg-c-green m-l-10 f-10">2 week</span></h6></span>
+                                                                    <span><h6>Went through charts section! <span class="label bg-c-green m-l-10 f-10">Priority</span></h6></span>
                                                                     <div class="task-card-img m-l-40">
                                                                         <a href="#!"><img src="{{ url_for('static', filename='images/avatar-2.jpg') }}" data-toggle="tooltip" title="Lary Doe" alt="" class="img-40"></a>
                                                                         <a href="#!"><img src="{{ url_for('static', filename='images/avatar-3.jpg') }}" data-toggle="tooltip" title="Alia" alt="" class="img-40 m-l-10"></a>
@@ -724,7 +721,7 @@
                                                                     <span class="cr">
                                                                         <i class="cr-icon icofont icofont-ui-check txt-default"></i>
                                                                     </span>
-                                                                    <span><h6>Meeting With HOD's and borad</h6><p class="text-muted m-l-40">23 january 2003</p></span>
+                                                                    <span><h6>Went through reports section</h6><p class="text-muted m-l-40">Readers!</p></span>
                                                                 </label>
                                                             </div>
                                                         </div>
@@ -735,7 +732,7 @@
                                                                     <span class="cr">
                                                                         <i class="cr-icon icofont icofont-ui-check txt-default"></i>
                                                                     </span>
-                                                                    <span><h6>Create template, admin with responsive<span class="label bg-c-pink m-l-10">2 week</span></h6></span>
+                                                                    <span><h6>Went through user-base analysis!<span class="label bg-c-pink m-l-10">Priority</span></h6></span>
                                                                     <div class="task-card-img m-l-40">
                                                                         <a href="#!"><img src="{{ url_for('static', filename='images/avatar-2.jpg') }}" data-toggle="tooltip" title="Alia" alt="" class="img-40"></a>
                                                                         <a href="#!"><img src="{{ url_for('static', filename='images/avatar-3.jpg') }}" data-toggle="tooltip" title="Suzen" alt="" class="img-40 m-l-10"></a>
@@ -752,8 +749,8 @@
                                                                     <span class="cr">
                                                                         <i class="cr-icon icofont icofont-ui-check txt-default"></i>
                                                                     </span>
-                                                                    <span><h6>Meeting With HOD's and borad</h6>
-                                                                        <p class="text-muted m-l-40">23 january 2003</p></span>
+                                                                    <span><h6>Got useful insights from Brandstar:)</h6>
+                                                                        <p class="text-muted m-l-40">Yes please:)</p></span>
                                                                         <div class="task-card-img m-l-40">
                                                                             <a href="#!"><img src="{{ url_for('static', filename='images/avatar-2.jpg') }}" data-toggle="tooltip" title="Lary Doe" alt="" class="img-40"></a>
                                                                             <a href="#!"><img src="{{ url_for('static', filename='images/avatar-3.jpg') }}" data-toggle="tooltip" title="Alia" alt="" class="img-40 m-l-10"></a>
@@ -781,7 +778,7 @@
                 </div>
                 <div class="fixed-button">
                     <a href="https://codedthemes.com/item/guru-able-admin-template/" target="_blank" class="btn btn-md btn-primary">
-                      <i class="fa fa-shopping-cart" aria-hidden="true"></i> Upgrade To Pro
+                      <i class="fa fa-shopping-cart" aria-hidden="true"></i> {{context.user}}
                     </a>
                 </div>
             </div>
@@ -835,7 +832,7 @@
 <script type="text/javascript" src="{{ url_for('static', filename='js/jquery/jquery.min.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-ui/jquery-ui.min.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/popper.js/popper.min.js') }}"></script>
-<script type="text/javascript" src="{{ url_for('static', filename='/js/bootstrap/js/bootstrap.min.js')}}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap/js/bootstrap.min.js')}}"></script>
 <!-- jquery slimscroll js -->
 <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-slimscroll/jquery.slimscroll.js')}}"></script>
 <!-- modernizr js -->

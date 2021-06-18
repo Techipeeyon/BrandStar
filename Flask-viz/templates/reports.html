@@ -17,17 +17,18 @@
     <meta name="keywords" content="flat ui, admin  Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
     <meta name="author" content="CodedThemes">
     <!-- Favicon icon -->
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-    <!-- Google font--><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
     <!-- Required Fremwork -->
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap/css/bootstrap.min.css') }}">
     <!-- themify-icons line icon -->
-    <link rel="stylesheet" type="text/css" href="assets/icon/themify-icons/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='icon/themify-icons/themify-icons.css') }}">
     <!-- ico font -->
-    <link rel="stylesheet" type="text/css" href="assets/icon/icofont/css/icofont.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='icon/icofont/css/icofont.css') }}">
     <!-- Style.css -->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/jquery.mCustomScrollbar.css') }}">
 </head>
 
 <body>
@@ -64,7 +65,7 @@
                             <i class="ti-search"></i>
                         </a>
                         <a href="index.html">
-                            <img class="img-fluid" src="assets/images/logo.png" alt="Theme-Logo" />
+                            <img class="img-fluid" src="{{ url_for('static', filename='images/logo.png') }}" alt="Theme-Logo" />
                         </a>
                         <a class="mobile-options">
                             <i class="ti-more"></i>
@@ -76,7 +77,7 @@
                             <li>
                                 <div class="sidebar_toggle"><a href="javascript:void(0)"><i class="ti-menu"></i></a></div>
                             </li>
-                            
+
                             <li>
                                 <a href="#!" onclick="javascript:toggleFullScreen()">
                                     <i class="ti-fullscreen"></i>
@@ -96,7 +97,7 @@
                                     </li>
                                     <li>
                                         <div class="media">
-                                            <img class="d-flex align-self-center" src="assets/images/user.png" alt="Generic placeholder image">
+                                            <img class="d-flex align-self-center img-radius" src="{{context.image_url}}" alt="Generic placeholder image">
                                             <div class="media-body">
                                                 <h5 class="notification-user">John Doe</h5>
                                                 <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
@@ -106,7 +107,7 @@
                                     </li>
                                     <li>
                                         <div class="media">
-                                            <img class="d-flex align-self-center" src="assets/images/user.png" alt="Generic placeholder image">
+                                            <img class="d-flex align-self-center img-radius" src="{{ url_for('static', filename='images/avatar-3.jpg') }}" alt="Generic placeholder image">
                                             <div class="media-body">
                                                 <h5 class="notification-user">Joseph William</h5>
                                                 <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
@@ -116,7 +117,7 @@
                                     </li>
                                     <li>
                                         <div class="media">
-                                            <img class="d-flex align-self-center" src="assets/images/user.png" alt="Generic placeholder image">
+                                            <img class="d-flex align-self-center img-radius" src="{{ url_for('static', filename='images/avatar-4.jpg') }}" alt="Generic placeholder image">
                                             <div class="media-body">
                                                 <h5 class="notification-user">Sara Soudein</h5>
                                                 <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
@@ -128,8 +129,8 @@
                             </li>
                             <li class="user-profile header-notification">
                                 <a href="#!">
-                                    <img src="assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
-                                    <span>John Doe</span>
+                                    <img src="{{context.image_url}}" class="img-radius" alt="User-Profile-Image">
+                                    <span>{{context.screen_name}}</span>
                                     <i class="ti-angle-down"></i>
                                 </a>
                                 <ul class="show-notification profile-notification">
@@ -161,7 +162,6 @@
                                 </ul>
                             </li>
                         </ul>
-                        
                     </div>
                 </div>
             </nav>
@@ -200,7 +200,7 @@
                             <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Layout</div>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li class="">
-                                    <a href="index.html">
+                                    <a href="/{{context.user}}/dashboard">
                                         <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
                                         <span class="pcoded-mcaret"></span>
@@ -309,7 +309,7 @@
                             <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Chart &amp; Maps</div>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li>
-                                    <a href="chart.html">
+                                    <a href="/{{context.user}}/charts">
                                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">Chart</span>
                                         <span class="pcoded-mcaret"></span>
@@ -412,8 +412,8 @@
                                                 <div class="page-header-title">
                                                     <i class="icofont icofont icofont icofont-file-document bg-c-pink"></i>
                                                     <div class="d-inline">
-                                                        <h4>Sample Page</h4>
-                                                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
+                                                        <h4>{{twitter_username}}</h4>
+                                                        <span>Get a textual report of your tweets.</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -427,7 +427,7 @@
                                                         </li>
                                                         <li class="breadcrumb-item"><a href="#!">Pages</a>
                                                         </li>
-                                                        <li class="breadcrumb-item"><a href="#!">Sample page</a>
+                                                        <li class="breadcrumb-item"><a href="#!">Reports</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -441,8 +441,8 @@
                                             <div class="col-sm-12">
                                                 <div class="card">
                                                     <div class="card-header">
-                                                        <h5>Hello card</h5>
-                                                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
+                                                        <h5>Reports</h5>
+                                                        <span>If you are more of a reading person!</span>
                                                         <div class="card-header-right">
                                                             <ul class="list-unstyled card-option" style="width: 35px;">
                                                                 <li class=""><i class="icofont icofont-simple-left"></i></li>
@@ -455,15 +455,115 @@
                                                     </div>
                                                     <div class="card-block">
                                                         <p>
-                                                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                                                            enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                                                            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                                            in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                                                            nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                                                            sunt in culpa qui officia deserunt mollit anim id est laborum."
+                                                            "This is the section where you get the reports for your brand. If you are more into reading things then these section might help you. However the graphs are a preferred way as it is way more detailed than this."
                                                         </p>
                                                     </div>
+
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h5>Top Keywords used.</h5>
+                                                        <div class="card-header-right">
+                                                            <ul class="list-unstyled card-option" style="width: 35px;">
+                                                                <li class=""><i class="icofont icofont-simple-left"></i></li>
+                                                                <li><i class="icofont icofont-maximize full-card"></i></li>
+                                                                <li><i class="icofont icofont-minus minimize-card"></i></li>
+                                                                <li><i class="icofont icofont-refresh reload-card"></i></li>
+                                                                <li><i class="icofont icofont-error close-card"></i></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <p>
+                                                            {{context.keyword_insights}}
+                                                        </p>
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <div id="keyword-chart" style="height:517px;"></div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h5>Popularity of your tweets.</h5>
+                                                        <div class="card-header-right">
+                                                            <ul class="list-unstyled card-option" style="width: 35px;">
+                                                                <li class=""><i class="icofont icofont-simple-left"></i></li>
+                                                                <li><i class="icofont icofont-maximize full-card"></i></li>
+                                                                <li><i class="icofont icofont-minus minimize-card"></i></li>
+                                                                <li><i class="icofont icofont-refresh reload-card"></i></li>
+                                                                <li><i class="icofont icofont-error close-card"></i></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <p>
+                                                            {{context.pop_string}}
+                                                        </p>
+                                                    </div>
+                                                   
+                                                    
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h5>Feedback on tweet length.</h5>
+                                                        <div class="card-header-right">
+                                                            <ul class="list-unstyled card-option" style="width: 35px;">
+                                                                <li class=""><i class="icofont icofont-simple-left"></i></li>
+                                                                <li><i class="icofont icofont-maximize full-card"></i></li>
+                                                                <li><i class="icofont icofont-minus minimize-card"></i></li>
+                                                                <li><i class="icofont icofont-refresh reload-card"></i></li>
+                                                                <li><i class="icofont icofont-error close-card"></i></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <p>
+                                                            {{context.final_string}}
+                                                        </p>
+                                                    </div>
+
+                                                    
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h5>How to improve your twitter handle?</h5>
+                                                        <div class="card-header-right">
+                                                            <ul class="list-unstyled card-option" style="width: 35px;">
+                                                                <li class=""><i class="icofont icofont-simple-left"></i></li>
+                                                                <li><i class="icofont icofont-maximize full-card"></i></li>
+                                                                <li><i class="icofont icofont-minus minimize-card"></i></li>
+                                                                <li><i class="icofont icofont-refresh reload-card"></i></li>
+                                                                <li><i class="icofont icofont-error close-card"></i></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <b><p>1. Twitter handle.</b>
+                                                        Make it as close to your company name as possible. Add it to your website, email signatures, the side of your delivery vehicle, and anyplace else it makes sense to show it off. Make it memorable.</p>                                                       
+                                                        <p><b>2. Twitter bio.</b>                                                       
+                                                        Be sure to use the entire 160 character limit. Be sure your key offering is visible on the first line. Use industry-related hashtags that will help get you into search results. Provide a shortened URL and fill out the location and website links below the bio.</p>                                                        
+                                                        <p><b>3. Logo and cover image.</b>                                                       
+                                                        Do not leave the picture blank. Use an optimized logo to fit the provided space. Add a brand-consistent color to your profile to help it stand out. (More below about being consistent in your social media branding!)</p>                                                       
+                                                        <p><b>4. Promote others.</b>                                                       
+                                                        You'll build rapport by making yourself seen and heard in other people's tweets. Be sincere and honest, and include your own thoughts; don't just cut and paste. Post a link and brief comment and mention the author by name.</p>                                                       
+                                                        <p><b>5. Retweet and reply.</b>                                          
+                                                        Retweet relevant content and reply to relevant tweets to maintain a robust presence. If someone shares positive feedback, retweet it with a "thank you" message. If you find an article, or if someone's started a threat of messages that align with your brand, show them some love. These are all examples of impactful content to retweet. Remember your retweets reflect back on your brand and should align with your purpose and values.</p>                                                    
+                                                        <p><b>6. Be consistent to build trust.</b>                                              
+                                                        This goes for everything from the style of tweets your tweeting to the time and frequency you're tweeting to the actual content you're tweeting. If you consistently tweet interesting and useful information without being particularly self-promoting, you'll build trust for you and your brand.</p>                                                       
+                                                        <p><b>7. Focus on your niche.</b>                                                   
+                                                        Start by tweeting about topics closely related to your products' focus. This leads to you becoming known as an expert voice in your field, and that credibility makes it more likely your followers will start using your product. You've shown that you're willing to provide value upfront.</p>                                                       
+                                                        <p><b>8. Be creative.</b>                                                       
+                                                        Don't just focus on vanilla topics and the usual tweet formats. Do something original, at least sometimes. See your Twitter account for what it was intended to be, a micro-blog. Think carefully about the wording of your tweets.</p>                                                        
+                                                        <p><b>9. Be responsive.</b>                                                        
+                                                        Turn your startup's Twitter account into a customer service support channel. Respond to any criticism as well as questions or comments. Replying quickly will boost your image as a brand that cares about customers and is eager to engage and help them.</p>
+                                                        <p><b>10. Pin a tweet.</b>
+                                                        Pin an engaging tweet to the top of your profile. You could pin a product demo video, a link to a published article or a featured story, or just pin a happy team picture. Change it up regularly to keep your audience engaged.</p>
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <div id="keyword-chart" style="height:517px;"></div>
+                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -531,22 +631,32 @@
 <![endif]-->
 <!-- Warning Section Ends -->
 <!-- Required Jquery -->
-<script type="text/javascript" src="assets/js/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="assets/js/jquery-ui/jquery-ui.min.js"></script>
-<script type="text/javascript" src="assets/js/popper.js/popper.min.js"></script>
-<script type="text/javascript" src="assets/js/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-ui/jquery-ui.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/popper.js/popper.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='/js/bootstrap/js/bootstrap.min.js')}}"></script>
 <!-- jquery slimscroll js -->
-<script type="text/javascript" src="assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-slimscroll/jquery.slimscroll.js')}}"></script>
 <!-- modernizr js -->
-<script type="text/javascript" src="assets/js/modernizr/modernizr.js"></script>
-<script type="text/javascript" src="assets/js/modernizr/css-scrollbars.js"></script>
-<!-- classie js -->
-<script type="text/javascript" src="assets/js/classie/classie.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/modernizr/modernizr.js')}}"></script>
+<!-- am chart -->
+<script src="{{ url_for('static', filename='pages/widget/amchart/amcharts.min.js')}}"></script>
+<script src="{{ url_for('static', filename='pages/widget/amchart/serial.min.js')}}"></script>
+<!-- Todo js -->
+<script type="text/javascript " src="{{ url_for('static', filename='pages/todo/todo.js')}}"></script>
 <!-- Custom js -->
-<script type="text/javascript" src="assets/js/script.js"></script>
-<script src="assets/js/pcoded.min.js"></script>
-<script src="assets/js/demo-12.js"></script>
-<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='pages/dashboard/custom-dashboard.js')}}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/script.js')}}"></script>
+<script type="text/javascript " src="{{ url_for('static', filename='js/SmoothScroll.js')}}"></script>
+<script src="{{ url_for('static', filename='js/pcoded.min.js')}}"></script>
+<script src="{{ url_for('static', filename='js/demo-12.js')}}"></script>
+<script src="{{ url_for('static', filename='js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script>
+    //Parse your Json variable here
+    var graphs = {{ context.keyword_graph | safe }};
+    Plotly.plot('keyword-chart', graphs, {});
+</script>
 </body>
 
 </html>
