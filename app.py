@@ -13,7 +13,7 @@ from user_details import *
 from user_stats import *
 from text_analyze import *
 tweets_df = None
-app = Flask(__name__,static_url_path='/static', static_folder="/home/dazedtiara6667/Flask-viz/templates/assets")
+app = Flask(__name__,static_url_path='/static', static_folder="templates/assets")
 @app.route('/<username>/dashboard',methods=['GET','POST'])
 def dashboard(username):
     print(username)
