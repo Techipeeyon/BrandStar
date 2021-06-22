@@ -45,6 +45,10 @@ PASSWORD=""
 ```
 python app.py
 ```
+8. Open the link in Google Chrome(other browsers might not work, hence Google Chrome)
+```
+127.0.0.1:5000
+```
 ## What it does
 BrandStar takes in just your Twitter handle and provides a detailed analysis of your account, user reviews (taken from Trustpilot), and personalized reports.
 
