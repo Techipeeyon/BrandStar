@@ -6,10 +6,10 @@ from dotenv import load_dotenv
 
 load_dotenv() 
 def get_tweets(username):
-        consumer_key = os.environ.get('CONSUMER_KEY')
-        consumer_secret = os.environ.get('CONSUMER_SECRET')
-        access_key = os.environ.get('ACCESS_KEY')
-        access_secret = os.environ.get('ACCESS_SECRET')
+        consumer_key = os.environ.get(CONSUMER_KEY)
+        consumer_secret = os.environ.get(CONSUMER_SECRET)
+        access_key = os.environ.get(ACCESS_KEY)
+        access_secret = os.environ.get(ACCESS_SECRET)
         # Authorization to consumer key and consumer secret
         auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 
