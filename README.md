@@ -26,7 +26,22 @@ cd BrandStar
 ```
 pip install -r requirements.txt
 ```
-5. Run app
+5. How to get credentials?
+For credentials make an account on expert.ai and also a twitter dev account and get the tokens to be used in the steps below.
+
+
+6. Create a .env file with these credentials
+```
+ACCESS_KEY = ""
+ACCESS_SECRET = ""
+CONSUMER_KEY = ""
+CONSUMER_SECRET = ""
+EMAIL= ""
+PASSWORD=""
+```
+
+
+7. Run app
 ```
 python app.py
 ```
