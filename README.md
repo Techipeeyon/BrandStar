@@ -22,9 +22,11 @@ git clone https://github.com/lazyCodes7/BrandStar.git
 ```
 cd BrandStar
 ```
-3. Activate the virtual environment
+3. Run the commands one by one for activating the virtual enviroment
 ```
-. vemv/bin/activate
+pip install virtualenv
+virtualenv venv
+. venv/bin/activate
 ```
 4. Install the requirements
 ```
@@ -74,5 +76,20 @@ Though there were a lot of challenges, I was still able to get through them.
 - Enabling users to compare two brands at a time
 - Reducing response time for the various routes
 
+## Ingredients
+- NLTK
+- HTML,CSS,JS
+- Flask
+- Python
+- Twitter API
+- Trustpilot
+- BeautifulSoup
+- expert.ai API
+- Plotly
 
+## Screenshots
+![Screenshot from 2021-06-22 20-08-56](https://user-images.githubusercontent.com/53506835/122953918-9f8b5680-d39c-11eb-9d34-9846a801a65e.png)![Screenshot from 2021-06-22 20-13-51](https://user-images.githubusercontent.com/53506835/122954231-e416f200-d39c-11eb-9e48-190997463e66.png)
+
+
+![Screenshot from 2021-06-22 20-18-12](https://user-images.githubusercontent.com/53506835/122953774-85517880-d39c-11eb-8792-5c025a6da7c0.png)
 
