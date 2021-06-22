@@ -76,6 +76,16 @@ Though there were a lot of challenges, I was still able to get through them.
 - Enabling users to compare two brands at a time
 - Reducing response time for the various routes
 
+## Ingredients
+- NLTK
+- HTML,CSS,JS
+- Flask
+- Python
+- Twitter API
+- Trustpilot
+- BeautifulSoup
+- expert.ai API
+- Plotly
 
 ## Screenshots
 ![Screenshot from 2021-06-22 20-08-56](https://user-images.githubusercontent.com/53506835/122953918-9f8b5680-d39c-11eb-9d34-9846a801a65e.png)![Screenshot from 2021-06-22 20-13-51](https://user-images.githubusercontent.com/53506835/122954231-e416f200-d39c-11eb-9e48-190997463e66.png)
