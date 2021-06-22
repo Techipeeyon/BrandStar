@@ -8,7 +8,8 @@ import pandas as pd
 from time import sleep
 import requests
 import os
- 
+from dotenv import load_dotenv
+load_dotenv() 
 os.environ["EAI_USERNAME"] = os.environ['EMAIL']
 os.environ["EAI_PASSWORD"] = os.environ['PASSWORD']
 def cleanTraitRate(text):

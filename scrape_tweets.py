@@ -2,6 +2,8 @@ import pandas as pd
 import tweepy
 from preprocess import *
 import os
+from dotenv import load_dotenv
+load_dotenv() 
 def get_tweets(username):
         consumer_key = os.environ['CONSUMER_KEY']
         consumer_secret = os.environ['CONSUMER_SECRET']
