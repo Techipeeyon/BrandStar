@@ -1,5 +1,5 @@
 # BrandStar
-Video Link: https://youtu.be/-yRnskOsbb8
+Video Link: https://youtu.be/-yRnskOsbb8 \
 BrandStar is a web application built using Flask which provides an analytical solution for the companies who want to analyze their product.
 
 
