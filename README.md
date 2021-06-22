@@ -77,4 +77,9 @@ Though there were a lot of challenges, I was still able to get through them.
 - Reducing response time for the various routes
 
 
+## Screenshots
+![Screenshot from 2021-06-22 20-08-56](https://user-images.githubusercontent.com/53506835/122953918-9f8b5680-d39c-11eb-9d34-9846a801a65e.png)![Screenshot from 2021-06-22 20-13-51](https://user-images.githubusercontent.com/53506835/122954231-e416f200-d39c-11eb-9e48-190997463e66.png)
+
+
+![Screenshot from 2021-06-22 20-18-12](https://user-images.githubusercontent.com/53506835/122953774-85517880-d39c-11eb-8792-5c025a6da7c0.png)
 
