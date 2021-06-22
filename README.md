@@ -9,6 +9,10 @@ There are not tools online that provide a way to analyze your own product. A per
 
 ![features provided](https://user-images.githubusercontent.com/53506835/122927548-9c856b80-d386-11eb-8168-0d764878f4d2.png)
 
+
+## How we built it
+Firstly BrandStar gets the tweets based on the handle provided and gathers this data and cleans it. Using the API provided from expert.ai, it gets the sentiments, behavior, etc from this data and it is then visualized using Plotly. For the user reviews, we try to scrape reviews from Trustpilot based on the username provided and show various visualizations related to ratings, user locations, emotions of users, and much more.
+
 ## Setup the Project:
 1. Clone the repo.
 ```
@@ -49,12 +53,6 @@ python app.py
 ```
 127.0.0.1:5000
 ```
-## What it does
-BrandStar takes in just your Twitter handle and provides a detailed analysis of your account, user reviews (taken from Trustpilot), and personalized reports.
-
-
-## How we built it
-Firstly BrandStar gets the tweets based on the handle provided and gathers this data and cleans it. Using the API provided from expert.ai, it gets the sentiments, behavior, etc from this data and it is then visualized using Plotly. For the user reviews, we try to scrape reviews from Trustpilot based on the username provided and show various visualizations related to ratings, user locations, emotions of users, and much more.
 
 ## Challenges we ran into
 Though there were a lot of challenges, I was still able to get through them.
