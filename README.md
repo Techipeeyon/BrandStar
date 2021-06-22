@@ -22,9 +22,11 @@ git clone https://github.com/lazyCodes7/BrandStar.git
 ```
 cd BrandStar
 ```
-3. Activate the virtual environment
+3. Run the commands one by one for activating the virtual enviroment
 ```
-. vemv/bin/activate
+pip install virtualenv
+virtualenv venv
+. venv/bin/activate
 ```
 4. Install the requirements
 ```
