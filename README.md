@@ -30,4 +30,32 @@ pip install -r requirements.txt
 ```
 python app.py
 ```
+## What it does
+BrandStar takes in just your Twitter handle and provides a detailed analysis of your account, user reviews (taken from Trustpilot), and personalized reports.
+
+
+## How we built it
+Firstly BrandStar gets the tweets based on the handle provided and gathers this data and cleans it. Using the API provided from expert.ai, it gets the sentiments, behavior, etc from this data and it is then visualized using Plotly. For the user reviews, we try to scrape reviews from Trustpilot based on the username provided and show various visualizations related to ratings, user locations, emotions of users, and much more.
+
+## Challenges we ran into
+Though there were a lot of challenges, I was still able to get through them.
+- Getting the tweets and gathering the data
+- Understanding how to use expert.ai API
+- Using it in my application properly
+- Scraping user reviews was a bit challenging as I didn't know where to scrape from
+
+## Accomplishments that we're proud of
+- I don't really do web applications so I had to learn Flask a bit before I could build this but I am really satisfied with the end result.
+- Building an app that will be useful and could possibly help companies in analyzing brands!
+
+## What we learned
+- Learned how to use Flask
+- Learned how to use expert.ai API
+
+
+## What's next for BrandStar
+- Enabling users to compare two brands at a time
+- Reducing response time for the various routes
+
+
 
