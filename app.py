@@ -1,17 +1,15 @@
-from flask import Flask, render_template, send_file, make_response, url_for, Response,request,redirect
-from get_user_reviews import *
-#Pandas and Matplotlib
+from flask import Flask, render_template, make_response, url_for, request,redirect
 import pandas as pd
-from plot_graph import *
-import plotly.express as px
+from tweets.preprocess.scrape_tweets import *
+from tweets.preprocess.preprocess_functions import *
+from tweets.nlp_functions.sentiments import *
+from tweets.preprocess.preprocess import * 
+from tweets.graphs.plot_graph import *
+from tweets.user.user_details import *
+from tweets.user.user_stats import *
+from tweets.reports.text_analyze import *
+from reviews.preprocess.get_user_reviews import *
 import os
-import asyncio
-import seaborn as sns
-from collections import Counter
-from scrape_tweets import *
-from user_details import *
-from user_stats import *
-from text_analyze import *
 tweets_df = None
 app = Flask(__name__,static_url_path='/static', static_folder="templates/assets")
 @app.route('/<username>/dashboard',methods=['GET','POST'])
@@ -23,7 +21,7 @@ def getUserContext(user):
     global tweets_df
     tweets_df = get_tweets(user)
     max,min,max_index,min_index = getTweetPopularityStats(tweets_df)
-    retweet_sum,screen_name,image_url,followers,friends,total_fav = getGeneralStats(user = user,tweets_df = tweets_df)
+    retweet_sum,screen_name,image_url,followers,friends,total_fav = getUserInfo(user = user,tweets_df = tweets_df)
     avg_sentiment,max_sentiment_value = getSentimentStats(tweets_df)
     maxlength_count,minlength_count,maxlengthtype_index,minlengthtype_index = getTweetLengthStats(tweets_df)
     plot_graph = drawGraph(tweets_df)
@@ -62,15 +60,6 @@ def home():
         user = request.form['username']
         return redirect(url_for('dashboard',username=user))
     return render_template('landing.html')
-
-@app.route('/visualize')
-def visualize():
-    sns.distplot(tweets_df['tweet_length'])
-    canvas = FigureCanvas(fig)
-    img=io.BytesIO()
-    fig.savefig(img)
-    img.seek(0)
-    return send_file(img, mimetype='img/png')
 
 @app.route('/<username>/reports')
 def textAnalyze(username):
