@@ -1,6 +1,10 @@
+# Necessary imports
 import pandas as pd
 import numpy as np
 from collections import Counter
+
+# Functions that convert the insights into a textual format
+
 
 def getTopKeywordInsights(tweets):
     cnt = Counter(" ".join(tweets).split()).most_common(10)

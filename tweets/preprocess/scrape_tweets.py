@@ -1,9 +1,12 @@
+# Necessary imports
 import pandas as pd
 import tweepy
 from .preprocess import *
 import os
 from dotenv import load_dotenv
 load_dotenv() 
+
+# Getting the tweets based on the username provided
 def get_tweets(username):
         consumer_key = os.environ['CONSUMER_KEY']
         consumer_secret = os.environ['CONSUMER_SECRET']
@@ -18,7 +21,7 @@ def get_tweets(username):
         # Calling api
         api = tweepy.API(auth)
 
-        # 200 tweets to be extracted
+        # 100 tweets to be extracted
         number_of_tweets=100
         tweets = api.user_timeline(screen_name=username,count=number_of_tweets)
         retweet_count = []

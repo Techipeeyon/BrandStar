@@ -1,6 +1,9 @@
+# Necessary imports
 import pandas as pd
 import numpy as np
 from .preprocess_functions import *
+
+# Preprocess function which use the preprocess_functions defined in preprocess_functions.py
 def preprocess(tweets_df):
     tweets_df['social_count'] = tweets_df['favorite_count'] + tweets_df['retweet_count']
     tweets_df['positivity'] = tweets_df['user_tweets'].apply(getPositiveSentiment)

@@ -24,7 +24,7 @@ def getUserContext(user):
     retweet_sum,screen_name,image_url,followers,friends,total_fav = getUserInfo(user = user,tweets_df = tweets_df)
     avg_sentiment,max_sentiment_value = getSentimentStats(tweets_df)
     maxlength_count,minlength_count,maxlengthtype_index,minlengthtype_index = getTweetLengthStats(tweets_df)
-    plot_graph = drawGraph(tweets_df)
+    plot_graph = drawTweetTypeGraph(tweets_df)
     hist_graph = tweetLengthHist(tweets_df)
 
 
@@ -91,7 +91,7 @@ def charts(username):
     keyword_graph = drawTopKeywords(tweets_df['user_tweets'])
     screen_name,image_url,followers,friends = getUserDetails(username)
     b_df = getBehavorialTraits(tweets_df)
-    f_graph_json,big5_graph_json = drawBehavorialCharts(b_df)
+    f_graph_json,big5_graph_json = drawBig5TraitCharts(b_df)
     length_graph = tweetLengthGraph(tweets_df)
     sentiment_graph = sentimentGraph(tweets_df)
     emot_graph = drawDonutCharts(e_df)

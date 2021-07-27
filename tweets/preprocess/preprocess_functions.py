@@ -1,3 +1,4 @@
+# Necessary imports
 import re
 import requests
 import os
@@ -9,11 +10,17 @@ import pandas as pd
 from time import sleep
 from dotenv import load_dotenv
 load_dotenv() 
+
+# Setting up the access keys from the .env file
 os.environ["EAI_USERNAME"] = os.environ['EMAIL']
 os.environ["EAI_PASSWORD"] = os.environ['PASSWORD']
+
+# Pre-processing function to get the rating involved in the review
 def cleanTraitRate(text):
     rating_text = text.split(" ")[1]
     return rating_text
+
+# Function used to create a new feature tweet-type
 def classifyTweets(count):
     if(count>20000):
         return "POPULAR"
@@ -21,6 +28,8 @@ def classifyTweets(count):
         return "NORMAL"
     elif(count>0 and count<10000):
         return "UNPOPULAR"
+
+# Function used to create a new feature tweet-length type
 def classifyTweetLength(length):
     if(length>0 and length<50):
         return "SHORT TWEET"
@@ -28,6 +37,8 @@ def classifyTweetLength(length):
         return "MEDIUM SIZED TWEET"
     elif(length>100 and length<=280):
         return "LONG TWEET"
+
+# Function used to create a new feature i.e sentiment
 def getPositiveSentiment(text):
     client = ExpertAiClient()
     language= 'en'
@@ -35,12 +46,24 @@ def getPositiveSentiment(text):
     body={"document": {"text": text}},
     params={'language': language, 'resource': 'sentiment'})
     return output.sentiment.positivity
+
+# Preprocessing using NLTK library to remove noise in the data collected"
 def remove_links(text):
+    # Creating the corpus
     STOP_WORDS = stopwords.words()
-    wnl=WordNetLemmatizer()
+
+    # Initalizing the lemmatizer
+    wnl = WordNetLemmatizer()
+
+    # Removing RT text in tweets since it won't be useful
     text = text.replace("RT","")
+
     text = re.sub(r'\d+', "", text)
+
+    # Removing hyperlinks
     text = re.sub('http://\S+|https://\S+', '', text)
+
+    # Removing emojis
     emoji_pattern = re.compile("["
                         u"\U0001F600-\U0001F64F"
                         u"\U0001F680-\U0001F6FF"
@@ -49,12 +72,23 @@ def remove_links(text):
                         u"\U000024C2-\U0001F251"
                            "]+", flags=re.UNICODE)
     text = emoji_pattern.sub(r'', text)
+
+    # Removing some common symbols
     text = re.sub(r'@\w+',  '', text).strip()
     text = re.sub("[^a-zA-Z0-9 ']", "", text)
+
+    # Using a lemmatizer to get a final text
     text=' '.join([wnl.lemmatize(i) for i in text.lower().split()])
+
+    # Tokenize the text
     text_tokens = word_tokenize(text)
+
+    # Itertating through the word and if a word is not in the stop words then adding it to the list
     tokens_without_sw = [word for word in text_tokens if not word in STOP_WORDS]
+
+    # Getting the filtered sentence
     filtered_sentence = (" ").join(tokens_without_sw)
     text = filtered_sentence
 
+    # Returning the transformed/filtered text
     return text
