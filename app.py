@@ -1,3 +1,4 @@
+# Necessary Imports
 from flask import Flask, render_template, make_response, url_for, request,redirect
 import pandas as pd
 from tweets.preprocess.scrape_tweets import *
@@ -10,13 +11,21 @@ from tweets.user.user_stats import *
 from tweets.reports.text_analyze import *
 from reviews.preprocess.get_user_reviews import *
 import os
+
+# Intializing the tweets_df 
 tweets_df = None
+
+# Initializing the flask app
 app = Flask(__name__,static_url_path='/static', static_folder="templates/assets")
+
+# Dashboard route
 @app.route('/<username>/dashboard',methods=['GET','POST'])
 def dashboard(username):
     print(username)
     context = getUserContext(user=username)
     return render_template('index.html',context=context)
+
+# Getting some common things like retweets and favorites etc to be shown on dashboard
 def getUserContext(user):
     global tweets_df
     tweets_df = get_tweets(user)
@@ -53,7 +62,7 @@ def getUserContext(user):
     return (context)
         
 
-
+# Home route where the landing page is shown
 @app.route('/',methods = ['POST', 'GET'])
 def home():
     if request.method == 'POST':
@@ -61,6 +70,7 @@ def home():
         return redirect(url_for('dashboard',username=user))
     return render_template('landing.html')
 
+# Reports route where the reports are shown
 @app.route('/<username>/reports')
 def textAnalyze(username):
     global tweets_df
@@ -80,9 +90,13 @@ def textAnalyze(username):
         "user" : username
     }
     return render_template('reports.html',context = context)
+
+# Error page
 @app.route('/error')
 def error():
     return render_template('error.html')
+
+# Route for showing the detailed analysis of the brand
 @app.route('/<username>/charts')
 def charts(username):
     global tweets_df
@@ -107,6 +121,8 @@ def charts(username):
         "big5_graph_json" : big5_graph_json, 
     }
     return render_template('chart.html',context=context)
+
+# Route for showing the detailed analysis of user-reviews
 @app.route('/<username>/user-base-analysis')
 def userBaseAnalysis(username):
     end_point = getReviewEndPoint(username)
@@ -130,5 +146,7 @@ def userBaseAnalysis(username):
     }
     return render_template('user-analysis.html',context=context)
 
+
+# Starting the app
 if __name__ == '__main__':
    app.run(debug=True)
