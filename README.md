@@ -1,15 +1,23 @@
 <!-- PROJECT LOGO -->
-<br />
 <p align="center">
 
-
   <h3 align="center">BrandStar</h3>
+     <img src="images/landing.png">
 
   <p align="center">
     BrandStar is a web application built using Flask which provides an analytical solution for the companies who want to analyze their product.
 
-</p>
+  </p>
+  <p align="center">
+    <a href="https://devpost.com/software/brandstar">View Demo</a>
+    ·
+    <a href="https://github.com/lazyCodes7/BrandStar/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/othneildrew/lazyCodes7/BrandStar/issues">Request Feature</a>
+  
+  </p>
 
+</p>
 
 
 <!-- TABLE OF CONTENTS -->
