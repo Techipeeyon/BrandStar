@@ -124,6 +124,9 @@ Enter the twitter username in the box and click "Analyze" and wait for the resul
 5. Read the reports
 <img src="images/reports.gif">
 
+## Watch a demo
+The project was built during a hackathon and hence also has a demo video which can be viewed at [Devpost](https://devpost.com/software/brandstar)
+
 <!-- ROADMAP -->
 ## Roadmap
 
