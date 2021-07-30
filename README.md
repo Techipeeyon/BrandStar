@@ -13,7 +13,7 @@
     ·
     <a href="https://github.com/lazyCodes7/BrandStar/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/lazyCodes7/BrandStar/issues">Request Feature</a>
+    <a href="https://github.com/lazyCodes7/BrandStar/issues">Request Feature</a>
   
   </p>
 
