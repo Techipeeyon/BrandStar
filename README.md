@@ -1,96 +1,162 @@
-# BrandStar
-Video Link: https://youtu.be/-yRnskOsbb8 \
-BrandStar is a web application built using Flask which provides an analytical solution for the companies who want to analyze their product.
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
 
 
-## Inspiration 
+  <h3 align="center">BrandStar</h3>
+
+  <p align="center">
+    BrandStar is a web application built using Flask which provides an analytical solution for the companies who want to analyze their product.
+
+</p>
+
+
+
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
+  </ol>
+</details>
+
+
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
 There are not tools online that provide a way to analyze your own product. A person could hire an analyst for the same but what if this could be done free-of-cost. This really is the inspiration behind building BrandStar
 
-## Features Provided
+### Built With
 
-![features provided](https://user-images.githubusercontent.com/53506835/122927548-9c856b80-d386-11eb-8168-0d764878f4d2.png)
+* [Flask](https://flask.palletsprojects.com/en/2.0.x/)
+* [NLTK](https://opencv.org/)
+* [PyTorch](https://pytorch.org/)
+* [Beautiful Soup]()
+* [expert.AI]()
+* [Plotly]()
+* [Twitter API]()
 
 
-## How we built it
-Firstly BrandStar gets the tweets based on the handle provided and gathers this data and cleans it. Using the API provided from expert.ai, it gets the sentiments, behavior, etc from this data and it is then visualized using Plotly. For the user reviews, we try to scrape reviews from Trustpilot based on the username provided and show various visualizations related to ratings, user locations, emotions of users, and much more.
 
-## Setup the Project:
-1. Clone the repo.
-```
-git clone https://github.com/lazyCodes7/BrandStar.git
-```
-2. Go to the directory.
-```
-cd BrandStar
-```
-3. Run the commands one by one for activating the virtual enviroment
-```
-pip install virtualenv
-virtualenv venv
-. venv/bin/activate
-```
-4. Install the requirements
-```
-pip install -r requirements.txt
-```
-5. How to get credentials?
+<!-- GETTING STARTED -->
+## Getting Started
+
+Follow the instructions to setup the project locally!
+
+### Prerequisites
+
+Make sure to have virtualenv package from python installed before proceeding to installation.
+  ```sh
+  pip install virtualenv
+  ```
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/lazyCodes7/BrandStar.git
+   ```
+2. Activate the virtual environment
+   ```sh
+   cd BrandStar
+   virtualenv venv
+   . venv/bin/activate
+   ```
+3. Install the required packages using pip
+   ```sh
+   pip install -r requirements.txt
+   ```
+4. How to get credentials?
 For credentials make an account on expert.ai and also a twitter dev account and get the tokens to be used in the steps below.
 
+5. Create a .env file with the credentials you got in step-4
+    ```python
+    ACCESS_KEY = ""
+    ACCESS_SECRET = ""
+    CONSUMER_KEY = ""
+    CONSUMER_SECRET = ""
+    EMAIL= ""
+    PASSWORD=""
+   ```
+6. Run app
+    ```sh
+    python app.py
+    ```
+7. Open the link in a web browser
+    ```
+    127.0.0.1:5000
+    ```
 
-6. Create a .env file with these credentials
-```
-ACCESS_KEY = ""
-ACCESS_SECRET = ""
-CONSUMER_KEY = ""
-CONSUMER_SECRET = ""
-EMAIL= ""
-PASSWORD=""
-```
+<!-- USAGE EXAMPLES -->
+## Usage
+1. Enter your twitter username
+Enter the twitter username in the box and click "Analyze" and wait for the results to show up
+<img src="images/images.gif">
 
-
-7. Run app
-```
-python app.py
-```
-8. Open the link in Google Chrome(other browsers might not work, hence Google Chrome)
-```
-127.0.0.1:5000
-```
-
-## Challenges we ran into
-Though there were a lot of challenges, I was still able to get through them.
-- Getting the tweets and gathering the data
-- Understanding how to use expert.ai API
-- Using it in my application properly
-- Scraping user reviews was a bit challenging as I didn't know where to scrape from
-
-## Accomplishments that we're proud of
-- I don't really do web applications so I had to learn Flask a bit before I could build this but I am really satisfied with the end result.
-- Building an app that will be useful and could possibly help companies in analyzing brands!
-
-## What we learned
-- Learned how to use Flask
-- Learned how to use expert.ai API
+2. Interactive dashboard opens and one can save the plot or zoom into the visualizations 
+<img src="images/dashboard.gif">
 
 
-## What's next for BrandStar
-- Enabling users to compare two brands at a time
-- Reducing response time for the various routes
+3. Interact with the charts section which has a detailed visualization of your brand like emotional-traits, behavorial-traits using NLP.
+<img src="images/charts.gif">
 
-## Ingredients
-- NLTK
-- HTML,CSS,JS
-- Flask
-- Python
-- Twitter API
-- Trustpilot
-- BeautifulSoup
-- expert.ai API
-- Plotly
+4. Analyze the reviews for your brand(Reviews are taken from Trustpilot) 
+<img src="images/user-base.gif">
 
-## Screenshots
-![Screenshot from 2021-06-22 20-08-56](https://user-images.githubusercontent.com/53506835/122953918-9f8b5680-d39c-11eb-9d34-9846a801a65e.png)![Screenshot from 2021-06-22 20-13-51](https://user-images.githubusercontent.com/53506835/122954231-e416f200-d39c-11eb-9e48-190997463e66.png)
+5. Read the reports
+<img src="images/reports.gif">
+
+<!-- ROADMAP -->
+## Roadmap
+
+See the [open issues](https://github.com/lazyCodes7/EthinicAPI/issues) for a list of proposed features (and known issues).
 
 
-![Screenshot from 2021-06-22 20-18-12](https://user-images.githubusercontent.com/53506835/122953774-85517880-d39c-11eb-8792-5c025a6da7c0.png)
+
+<!-- CONTRIBUTING -->
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+
+
+<!-- LICENSE -->
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+
+
+<!-- CONTACT -->
+## Contact
+
+Rishab Mudliar - [@cheesetaco19](https://twitter.com/cheesetaco19) - rishabmudliar@gmail.com
+
+Telegram: [lazyCodes7](https://t.me/lazyCodes7)
+
+
 
