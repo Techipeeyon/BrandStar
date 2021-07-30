@@ -56,10 +56,10 @@ There are not tools online that provide a way to analyze your own product. A per
 * [Flask](https://flask.palletsprojects.com/en/2.0.x/)
 * [NLTK](https://opencv.org/)
 * [PyTorch](https://pytorch.org/)
-* [Beautiful Soup]()
-* [expert.AI]()
-* [Plotly]()
-* [Twitter API]()
+* [Beautiful Soup](https://beautiful-soup-4.readthedocs.io/en/latest/)
+* [expert.AI](https://www.expert.ai/)
+* [Plotly](https://plotly.com/)
+* [Twitter API](https://developer.twitter.com/en/docs/twitter-api)
 
 
 
