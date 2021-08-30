@@ -10,10 +10,11 @@ from tweets.user.user_details import *
 from tweets.user.user_stats import *
 from tweets.reports.text_analyze import *
 from reviews.preprocess.get_user_reviews import *
+from tweets.utils.TweetUtils import TweetUtils
 import os
 
 # Intializing the tweets_df 
-tweets_df = None
+tweet_utils = TweetUtils()
 
 # Initializing the flask app
 app = Flask(__name__,static_url_path='/static', static_folder="templates/assets")
@@ -27,8 +28,7 @@ def dashboard(username):
 
 # Getting some common things like retweets and favorites etc to be shown on dashboard
 def getUserContext(user):
-    global tweets_df
-    tweets_df = get_tweets(user)
+    tweets_df = tweet_utils.get_tweets(user)
     ## Getting the maximum and minimum values along with the indexes for the popularity of tweets
     max,min,max_index,min_index = getTweetPopularityStats(tweets_df)
     # Getting the retweet sum, screen_ame and image_url etc to be shown on the dashboard
@@ -85,7 +85,7 @@ def home():
 @app.route('/<username>/reports')
 def textAnalyze(username):
     # Using the tweets_df defined
-    global tweets_df
+    tweets_df = tweet_utils.getDataFrame()
     
     # Getting the graphs in JSON format to be drawn in the reports section
     keyword_graph = drawTopKeywords(tweets=tweets_df['user_tweets'],height=300,width=900)
@@ -117,8 +117,7 @@ def error():
 @app.route('/<username>/charts')
 def charts(username):
     # Getting the tweets collected
-    global tweets_df
-    
+    tweets_df = tweet_utils.getDataFrame()
     # Collecting the graphs in JSON format to be shown on the site
     e_df = getEmotionalTraits(tweets_df)
     keyword_graph = drawTopKeywords(tweets_df['user_tweets'])
