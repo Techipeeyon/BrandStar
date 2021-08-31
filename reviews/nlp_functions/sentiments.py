@@ -22,6 +22,7 @@ def getUserTraits(df):
     big_5_traits = []
     big_5_trait_rate = []
     final_traits = []
+    preprocessor = Preprocessor()
 
     # Going through the review headers and reviews itself
     try:
@@ -79,7 +80,7 @@ def getUserTraits(df):
         }
         reviews_df = pd.DataFrame(e_dict)
         b_df = pd.DataFrame(b_dict)
-        b_df['big_5_trait_rate'] = b_df['big_5_trait_rate'].apply(cleanTraitRate)
+        b_df['big_5_trait_rate'] = b_df['big_5_trait_rate'].apply(preprocessor.cleanTraitRate)
 
         # Return the default dataframe with some sample data
     return (reviews_df,b_df)

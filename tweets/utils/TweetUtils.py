@@ -8,6 +8,10 @@ load_dotenv()
 class TweetUtils:
     def __init__(self):
         self.tweets_df = None
+        self.consumer_key = os.environ['CONSUMER_KEY']
+        self.consumer_secret = os.environ['CONSUMER_SECRET']
+        self.access_key = os.environ['ACCESS_KEY']
+        self.access_secret = os.environ['ACCESS_SECRET']
 
     def populateDataFrame(self, df):
         self.tweets_df = df
@@ -16,15 +20,11 @@ class TweetUtils:
         return self.tweets_df
 
     def get_tweets(self, username):
-        consumer_key = os.environ['CONSUMER_KEY']
-        consumer_secret = os.environ['CONSUMER_SECRET']
-        access_key = os.environ['ACCESS_KEY']
-        access_secret = os.environ['ACCESS_SECRET']
         # Authorization to consumer key and consumer secret
-        auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+        auth = tweepy.OAuthHandler(self.consumer_key, self.consumer_secret)
 
         # Access to user's access key and access secret
-        auth.set_access_token(access_key, access_secret)
+        auth.set_access_token(self.access_key, self.access_secret)
 
         # Calling api
         api = tweepy.API(auth)

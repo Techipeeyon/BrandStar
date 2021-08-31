@@ -1,7 +1,6 @@
 # Necessary Imports
 from flask import Flask, render_template, make_response, url_for, request,redirect
 import pandas as pd
-from tweets.preprocess.scrape_tweets import *
 from tweets.preprocess.preprocess_functions import *
 from tweets.nlp_functions.sentiments import *
 from tweets.preprocess.preprocess import * 
@@ -11,6 +10,7 @@ from tweets.user.user_stats import *
 from tweets.reports.text_analyze import *
 from reviews.preprocess.get_user_reviews import *
 from tweets.utils.TweetUtils import TweetUtils
+from reviews.utils.ReviewUtils import ReviewUtils
 import os
 
 # Intializing the tweets_df 
@@ -146,13 +146,16 @@ def charts(username):
 @app.route('/<username>/user-base-analysis')
 def userBaseAnalysis(username):
     # Searching for the company on trustpilot(user-review site) with the username
-    end_point = getReviewEndPoint(username)
+    review_utils = ReviewUtils(username = username, n_pages = 2)
+
+    review_utils.getReviewEndPoint()
+
+    review_utils.scrape_reviews()
     
     # Creating the PATH with the endpoint recieved
-    PATH = 'https://www.trustpilot.com{}?page='.format(end_point)
     
     # Getting the data back as Pandas dataframe
-    user_reviews_df, scrape_success = scrape_reviews(PATH = 'https://www.trustpilot.com{}?page='.format(end_point),n_pages = 1)
+    user_reviews_df, scrape_success = review_utils.user_reviews_df, review_utils.scrape_success
     
     # Redirecting user to error page if the site was not found on trustpilot
     if(scrape_success == 0):

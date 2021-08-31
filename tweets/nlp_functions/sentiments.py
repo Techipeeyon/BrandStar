@@ -42,6 +42,7 @@ def getEmotionalTraits(df):
 
 # Getting the behavorial traits from the tweets
 def getBehavorialTraits(df):
+    preprocessor = Preprocessor()
     # Instantiate the client
     client = ExpertAiClient()
     taxonomy='behavioral-traits'
@@ -78,7 +79,7 @@ def getBehavorialTraits(df):
     b_df = pd.DataFrame(b_dict)
 
     # Applying preprocessing function 
-    b_df['big_5_trait_rate'] = b_df['big_5_trait_rate'].apply(cleanTraitRate)
+    b_df['big_5_trait_rate'] = b_df['big_5_trait_rate'].apply(preprocessor.cleanTraitRate)
 
     # Returning the dataframe
     return b_df
