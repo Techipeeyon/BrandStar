@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 load_dotenv() 
 class TweetUtils:
     def __init__(self):
+        # Initializing the utils class
         self.tweets_df = None
         self.consumer_key = os.environ['CONSUMER_KEY']
         self.consumer_secret = os.environ['CONSUMER_SECRET']
@@ -14,6 +15,7 @@ class TweetUtils:
         self.access_secret = os.environ['ACCESS_SECRET']
 
     def populateDataFrame(self, df):
+        # Populate dataframe with collected twitter data
         self.tweets_df = df
     
     def getDataFrame(self):
