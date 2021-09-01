@@ -4,6 +4,7 @@ from requests import get
 from bs4 import BeautifulSoup
 import pandas as pd
 class ReviewUtils:
+    # Initializing the review utils class
     def __init__(self, username, n_pages):
         self.username = username
         self.endpoint = None
@@ -11,6 +12,8 @@ class ReviewUtils:
         self.user_reviews_df = None
         self.scrape_success = None
     def getReviewEndPoint(self):
+        
+        # Getting the review endpoint required
         url = "https://www.trustpilot.com/search?query={}".format(self.username)
         response = get(url)
         preferred_url = "{}.com".format(self.username.lower())
@@ -25,6 +28,8 @@ class ReviewUtils:
             self.endpoint = None
 
     def scrape_reviews(self, sleep_time = 0.3):
+        
+        # Scraping the reviews with the endpoint acquired
         print("This is the endpoint{}".format(self.endpoint))
         self.PATH = 'https://www.trustpilot.com{}?page='.format(self.endpoint)
 
@@ -35,6 +40,7 @@ class ReviewUtils:
         reviews = []
         locations = []
         try:
+            # Trying to save the reviews
             for p in range(self.n_pages):
                 sleep(sleep_time)
                 final_path = "{}{}".format(self.PATH,p)
@@ -85,16 +91,22 @@ class ReviewUtils:
                 rev_df['Location'] = rev_df['Location'].apply(ReviewUtils.clean_string)
                 scrape_success = 1
         except Exception as e:
+            # If the endpoint was incorrect it should lead to an error
             print(e)
             scrape_success = 0
             rev_df = "Error"
             self.user_reviews_df = rev_df
             self.scrape_success = scrape_success
+            
+        # Setting the datafame with the reviews collected
         self.user_reviews_df = rev_df
         
+        # Setting the scrape_success 0 = unsuccessful scraping, 1 = successfully scraped
         self.scrape_success = scrape_success
+        
     @staticmethod
     def clean_string(text):
+        # Static preprocessing function to clean the reviews
         text = text.replace("\n", "", 2)
         text = text.replace(' ', '')
         return text
